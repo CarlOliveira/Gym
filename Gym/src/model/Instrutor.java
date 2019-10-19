@@ -7,15 +7,8 @@ public class Instrutor {
 	private String telefone; 
 	private String email;
 	private String endereco;
-	private int idInstrutor;
 	private String turno;
 	
-	public int getIdInstrutor() {
-		return idInstrutor;
-	}
-	public void setIdInstrutor(int idInstrutor) {
-		this.idInstrutor = idInstrutor;
-	}
 	public String getTurno() {
 		return turno;
 	}
