@@ -7,7 +7,6 @@ public class Aluno {
 	private String telefone; 
 	private String email;
 	private String endereco;
-	private int idAluno;
 	
 	public String getNome() {
 		return nome;
@@ -38,11 +37,5 @@ public class Aluno {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-	public int getIdAluno() {
-		return idAluno;
-	}
-	public void setIdAluno(int idAluno) {
-		this.idAluno = idAluno;
 	}
 }
