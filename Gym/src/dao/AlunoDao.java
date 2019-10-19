@@ -77,8 +77,8 @@ public ArrayList <Aluno> Listartodos(){
             aluno.setNome(rs.getString("nome"));
             aluno.setCpf(rs.getString("cpf"));
             aluno.setTelefone(rs.getString("telefone"));
-            aluno.setNome(rs.getString("email"));
-            aluno.setNome(rs.getString("endereco"));
+            aluno.setEmail(rs.getString("email"));
+            aluno.setEndereco(rs.getString("endereco"));
             lista.add(aluno);
         }
     }    
@@ -98,8 +98,8 @@ public ArrayList <Aluno> Listartodos(){
             aluno.setNome(rs.getString("nome"));
             aluno.setCpf(rs.getString("cpf"));
             aluno.setTelefone(rs.getString("telefone"));
-            aluno.setNome(rs.getString("email"));
-            aluno.setNome(rs.getString("endereco"));
+            aluno.setEmail(rs.getString("email"));
+            aluno.setEndereco(rs.getString("endereco"));
             lista.add(aluno);
         }
     }    
@@ -118,8 +118,8 @@ public ArrayList <Aluno> Listartodos(){
 	            aluno.setNome(rs.getString("nome"));
 	            aluno.setCpf(rs.getString("cpf"));
 	            aluno.setTelefone(rs.getString("telefone"));
-	            aluno.setNome(rs.getString("email"));
-	            aluno.setNome(rs.getString("endereco"));
+	            aluno.setEmail(rs.getString("email"));
+	            aluno.setEndereco(rs.getString("endereco"));
 	            lista.add(aluno);
 	        }
 	    }    
@@ -129,4 +129,3 @@ public ArrayList <Aluno> Listartodos(){
 	    return lista;
 	}  
 }
-
