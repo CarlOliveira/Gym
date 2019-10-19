@@ -13,7 +13,6 @@ public class AlunoDao {
 	private PreparedStatement stmt;
 	private Statement st;
 	private ResultSet rs;
-	private ArrayList<Aluno> lista = new ArrayList<Aluno>();
 	    
 	public AlunoDao(){
 	 conn = new ConnectionFactory().getConexao();
@@ -31,7 +30,7 @@ public class AlunoDao {
 	        stmt.execute();
 	        stmt.close();
 	        }
-	    catch(Exception erro){
+	     catch(Exception erro){
 	        throw new RuntimeException("ERRO: " + erro);
 	    }
 	}
@@ -67,8 +66,9 @@ public void delete (Aluno aluno) {
     }
 }
 
-public ArrayList <Aluno> Listartodos(){
+public ArrayList<Aluno> Listartodos(){
     String sql = "select * from aluno";
+    ArrayList<Aluno> lista = new ArrayList<Aluno>();
     try{
         st = conn.createStatement();
         rs = st.executeQuery(sql);
@@ -88,8 +88,9 @@ public ArrayList <Aluno> Listartodos(){
     return lista;
 }
 
- public ArrayList <Aluno> Listartodosnomes(String nome){
+ public ArrayList<Aluno> Listartodosnomes(String nome){
     String sql = "select * from aluno where nome like '%"+nome+"%' " ;
+    ArrayList<Aluno> lista = new ArrayList<Aluno>();
     try{
         st = conn.createStatement();
         rs = st.executeQuery(sql);
@@ -108,24 +109,43 @@ public ArrayList <Aluno> Listartodos(){
     }
     return lista;
 }
- public ArrayList <Aluno> Listartodoscpf(String cpf){
-	    String sql = "select * from aluno where nome like '%"+cpf+"%' " ;
+ public Aluno ListarPorCpf(String cpf){
+	    String sql = "select * from aluno where nome like '%"+cpf+"%' ";
+	    Aluno aluno = new Aluno();
 	    try{
 	        st = conn.createStatement();
 	        rs = st.executeQuery(sql);
 	        while (rs.next ()){
-	        	Aluno aluno = new Aluno();
+	        	
 	            aluno.setNome(rs.getString("nome"));
 	            aluno.setCpf(rs.getString("cpf"));
 	            aluno.setTelefone(rs.getString("telefone"));
 	            aluno.setEmail(rs.getString("email"));
 	            aluno.setEndereco(rs.getString("endereco"));
-	            lista.add(aluno);
 	        }
 	    }    
 	    catch(Exception erro){
 	        throw new RuntimeException ("Erro 5: " + erro);
 	    }
-	    return lista;
+	    return aluno;
+	}  
+    public Boolean VeficaSeCpfJaExiste(String cpf){
+	    String sql = "select cpf from aluno where cpf like '%"+cpf+"%' ";
+	    Aluno aluno = new Aluno();
+	    try{
+	        st = conn.createStatement();
+	        rs = st.executeQuery(sql);
+	        while (rs.next ()){
+	            aluno.setCpf(rs.getString("cpf"));
+	        }
+	    }    
+	    catch(Exception erro){
+	        throw new RuntimeException ("Erro 5: " + erro);
+	    }
+	    if (aluno.getCpf() != null) {
+	    	return true;
+	    } else {
+	    	return false;
+	    }
 	}  
 }

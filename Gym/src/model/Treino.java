@@ -3,8 +3,8 @@ package model;
 public class Treino {
 
 	private int idTreino;
-	private String cpf;
-	private String cpf_Instrutor;
+	private Aluno aluno;
+	private Instrutor instrutor;
 	private String descricao;
 	private String turno;
 	private String data_Treino;
@@ -14,18 +14,6 @@ public class Treino {
 	}
 	public void setIdTreino(int idTreino) {
 		this.idTreino = idTreino;
-	}
-	public int getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public int getCpf_Instrutor() {
-		return cpf_Instrutor;
-	}
-	public void setCpf_Instrutor(String cpf_Instrutor) {
-		this.cpf_Instrutor = cpf_Instrutor;
 	}
 	public String getData_Treino() {
 		return data_Treino;
@@ -44,5 +32,17 @@ public class Treino {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public Aluno getAluno() {
+		return aluno;
+	}
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+	public Instrutor getInstrutor() {
+		return instrutor;
+	}
+	public void setInstrutor(Instrutor instrutor) {
+		this.instrutor = instrutor;
 	}
 }
