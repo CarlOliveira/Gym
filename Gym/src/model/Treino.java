@@ -36,7 +36,7 @@ public class Treino {
 	public String getTurno(){
 		return turno;
 	}
-	public void setTruno(String turno){
+	public void setTurno(String turno){
 		this.turno = turno;
 	}	
 	public String getDescricao() {
