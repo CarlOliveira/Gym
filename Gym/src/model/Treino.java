@@ -3,46 +3,46 @@ package model;
 public class Treino {
 
 	private int idTreino;
-	private int idAluno;
-	private int idInstrutor;
-	private int idFicha;
-	private String dataTreino;
-	private String status;
-	
-	public int getIdFicha() {
-		return idFicha;
-	}
-	public void setIdFicha(int idFicha) {
-		this.idFicha = idFicha;
-	}
+	private String cpf;
+	private String cpf_Instrutor;
+	private String descricao;
+	private String turno;
+	private String data_Treino;
+
 	public int getIdTreino() {
 		return idTreino;
 	}
 	public void setIdTreino(int idTreino) {
 		this.idTreino = idTreino;
 	}
-	public int getIdAluno() {
-		return idAluno;
+	public int getCpf() {
+		return cpf;
 	}
-	public void setIdAluno(int idAluno) {
-		this.idAluno = idAluno;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-	public int getIdInstrutor() {
-		return idInstrutor;
+	public int getCpf_Instrutor() {
+		return cpf_Instrutor;
 	}
-	public void setIdInstrutor(int idInstrutor) {
-		this.idInstrutor = idInstrutor;
+	public void setCpf_Instrutor(String cpf_Instrutor) {
+		this.cpf_Instrutor = cpf_Instrutor;
 	}
-	public String getDataTreino() {
-		return dataTreino;
+	public String getData_Treino() {
+		return data_Treino;
 	}
-	public void setDataTreino(String dataTreino) {
-		this.dataTreino = dataTreino;
+	public void setData_Treino(String data_Treino) {
+		this.data_Treino = data_Treino;
 	}
-	public String getStatus() {
-		return status;
+	public String getTurno(){
+		return turno;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setTruno(String turno){
+		this.turno = turno;
+	}	
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 }
