@@ -1,27 +1,20 @@
 package model;
 
-public class Exerc {
+public class Exercicio {
 
-	private int idExerc;
-	private String exerc;
-	private String agrupMuscular;
+	private String exercicio;
+	private String agrupamento_muscular;
 	
-	public int getIdExerc() {
-		return idExerc;
+	public String getExercicio() {
+		return exercicio;
 	}
-	public void setIdExerc(int idExerc) {
-		this.idExerc = idExerc;
+	public void setExercicio(String exercicio) {
+		this.exercicio = exercicio;
 	}
-	public String getExerc() {
-		return exerc;
+	public String getAgrupamento_muscular() {
+		return agrupamento_muscular;
 	}
-	public void setExerc(String exerc) {
-		this.exerc = exerc;
-	}
-	public String getAgrupMuscular() {
-		return agrupMuscular;
-	}
-	public void setAgrupMuscular(String agrupMuscular) {
-		this.agrupMuscular = agrupMuscular;
+	public void setAgrupamento_muscular(String agrupamento_muscular) {
+		this.agrupamento_muscular = agrupamento_muscular;
 	}
 }
