@@ -59,6 +59,7 @@ public void delete (Aluno aluno) {
     try{
     	stmt = conn.prepareStatement(sql);
     	stmt.setString(1, aluno.getCpf());
+    	stmt.execute();
     	stmt.close();
     } 
     catch(Exception erro){

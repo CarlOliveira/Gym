@@ -17,6 +17,9 @@ public class FXMLInicioController implements Initializable {
 
     @FXML
     private MenuItem menuItemInstrutor;
+    
+    @FXML
+    private MenuItem menuItemExercicio;
 
     @FXML
     private AnchorPane ancorPane;
@@ -29,6 +32,13 @@ public class FXMLInicioController implements Initializable {
 	public void abrirMenuItemCadastroAluno(ActionEvent event) throws IOException {
 		AnchorPane pane = (AnchorPane) 
 				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarAluno.fxml"));
+		ancorPane.getChildren().setAll(pane);
+	}
+	
+	@FXML
+	public void abrirMenuItemCadastroExercicio(ActionEvent event) throws IOException {
+		AnchorPane pane = (AnchorPane) 
+				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarExercicio.fxml"));
 		ancorPane.getChildren().setAll(pane);
 	}
     	

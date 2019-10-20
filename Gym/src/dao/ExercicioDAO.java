@@ -55,6 +55,7 @@ public class ExercicioDAO {
 	    try{
 	    	stmt = conn.prepareStatement(sql);
 	    	stmt.setString(1, exercicio.getNome());
+	    	stmt.execute();
 	    	stmt.close();
 	    } 
 	    catch(Exception erro){
@@ -72,7 +73,7 @@ public class ExercicioDAO {
 	        	Exercicio exercicio = new Exercicio();
 	        	exercicio.setNome(rs.getString("exercicio"));
 	        	exercicio.setAgrupamentoMuscular(rs.getString("agrupamento_muscular"));
-	        	exercicio.setDescricao(rs.getString("descricao"));
+	        	exercicio.setDescricao(rs.getString("descrição"));
 	            lista.add(exercicio);
 	        }
 	    }    
@@ -80,6 +81,32 @@ public class ExercicioDAO {
 	        throw new RuntimeException ("Erro 5: " + erro);
 	    }
 	    return lista;
-	}	  
+	}	 
+	
+	public Boolean verificarSeJaExiste(String nome) {
+		String sql = "select * FROM exercicio WHERE exercicio = ?";
+		Exercicio exercicio = null;
+	    try{
+	    	stmt = conn.prepareStatement (sql);
+	        stmt.setString(1, nome);
+	        rs = stmt.executeQuery();
+	        
+	        while (rs.next ()){
+	        	exercicio = new Exercicio();
+	        	exercicio.setNome(rs.getString("exercicio"));
+	        	exercicio.setAgrupamentoMuscular(rs.getString("agrupamento_muscular"));
+	        	exercicio.setDescricao(rs.getString("descrição"));
+	        }
+	    }    
+	    catch(Exception erro){
+	        throw new RuntimeException ("Erro 5: " + erro);
+	    }
+	    if (exercicio != null) {
+	    	return true;	
+	    } else {
+	    	return false;
+	    }
+	    
+	}
 }
 
