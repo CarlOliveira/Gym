@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class Treino {
 
 	private int idTreino;
@@ -8,19 +10,13 @@ public class Treino {
 	private Exercicio exercicio; 
 	private String descricao;
 	private String turno;
-	private String data_Treino;
+	private Date dataTreino;
 
 	public int getIdTreino() {
 		return idTreino;
 	}
 	public void setIdTreino(int idTreino) {
 		this.idTreino = idTreino;
-	}
-	public String getData_Treino() {
-		return data_Treino;
-	}
-	public void setData_Treino(String data_Treino) {
-		this.data_Treino = data_Treino;
 	}
 	public String getTurno(){
 		return turno;
@@ -51,5 +47,11 @@ public class Treino {
 	}
 	public void setExercicio(Exercicio exercicio) {
 		this.exercicio = exercicio;
+	}
+	public Date getDataTreino() {
+		return dataTreino;
+	}
+	public void setDataTreino(Date dataTreino) {
+		this.dataTreino = dataTreino;
 	}
 }

@@ -2,16 +2,11 @@ package model;
 
 public class Exercicio {
 
-	private String exercicio;
+	private String nome;
 	private String agrupamentoMuscular;
 	private String descricao;
 	
-	public String getExercicio() {
-		return exercicio;
-	}
-	public void setExercicio(String exercicio) {
-		this.exercicio = exercicio;
-	}
+	
 	public String getAgrupamentoMuscular() {
 		return agrupamentoMuscular;
 	}
@@ -23,5 +18,11 @@ public class Exercicio {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }

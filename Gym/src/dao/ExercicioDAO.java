@@ -20,10 +20,10 @@ public class ExercicioDAO {
 		}
 		
 		public void create(Exercicio exercicio) {
-			String sql = "INSERT INTO instrutor (exercicio, agrupamento_muscular, descrição) VALUES (?,?,?)";
+			String sql = "INSERT INTO exercicio (exercicio, agrupamento_muscular, descrição) VALUES (?,?,?)";
 		    try {
 		        stmt = conn.prepareStatement(sql);
-		        stmt.setString(1, exercicio.getExercicio());
+		        stmt.setString(1, exercicio.getNome());
 		        stmt.setString(2, exercicio.getAgrupamentoMuscular());
 		        stmt.setString(3, exercicio.getDescricao());
 		        stmt.execute();
@@ -41,7 +41,7 @@ public class ExercicioDAO {
 	        stmt = conn.prepareStatement (sql);
 	        stmt.setString(1, exercicio.getAgrupamentoMuscular());
 	        stmt.setString(2, exercicio.getDescricao());
-	        stmt.setString(3, exercicio.getExercicio());
+	        stmt.setString(3, exercicio.getNome());
 	        stmt.execute();
 	        stmt.close();
 	    }
@@ -54,7 +54,7 @@ public class ExercicioDAO {
 	    String sql = "DELETE FROM exercicio WHERE exercicio = ?";
 	    try{
 	    	stmt = conn.prepareStatement(sql);
-	    	stmt.setString(1, exercicio.getExercicio());
+	    	stmt.setString(1, exercicio.getNome());
 	    	stmt.close();
 	    } 
 	    catch(Exception erro){
@@ -70,7 +70,7 @@ public class ExercicioDAO {
 	        rs = st.executeQuery(sql);
 	        while (rs.next ()){
 	        	Exercicio exercicio = new Exercicio();
-	        	exercicio.setExercicio(rs.getString("exercicio"));
+	        	exercicio.setNome(rs.getString("exercicio"));
 	        	exercicio.setAgrupamentoMuscular(rs.getString("agrupamento_muscular"));
 	        	exercicio.setDescricao(rs.getString("descricao"));
 	            lista.add(exercicio);
