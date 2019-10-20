@@ -13,14 +13,13 @@ public class InstrutorDAO {
 	private PreparedStatement stmt;
 	private Statement st;
 	private ResultSet rs;
-	private ArrayList<Instrutor> lista = new ArrayList<Instrutor>();
 
 	public InstrutorDAO(){
 		 conn = new ConnectionFactory().getConexao();
 		}
 		
 		public void create(Instrutor instrutor) {
-			String sql = "INSERT INTO instrutor (nome, cpf, telefone, email, endereco, turno) VALUES (?,?,?,?,?)";
+			String sql = "INSERT INTO instrutor (nome, cpf, telefone, email, endereco, turno) VALUES (?,?,?,?,?,?)";
 		    try {
 		        stmt = conn.prepareStatement(sql);
 		        stmt.setString(1, instrutor.getNome());
@@ -60,9 +59,9 @@ public class InstrutorDAO {
 	public void delete (Instrutor instrutor) {
 	    String sql = "DELETE FROM instrutor WHERE cpf = ?";
 	    try{
-	        st = conn.createStatement();
-	        st.execute(sql);
-	        st.close();
+	     	stmt = conn.prepareStatement(sql);
+	    	stmt.setString(1, instrutor.getCpf());
+	    	stmt.close();
 	    } 
 	    catch(Exception erro){
 	        throw new RuntimeException ("ERRO 4: " + erro);
@@ -71,6 +70,7 @@ public class InstrutorDAO {
 
 	public ArrayList <Instrutor> Listartodos(){
 	    String sql = "select * from instrutor";
+	    ArrayList<Instrutor> lista = new ArrayList<Instrutor>();
 	    try{
 	        st = conn.createStatement();
 	        rs = st.executeQuery(sql);
@@ -92,6 +92,7 @@ public class InstrutorDAO {
 	}
 
 	 public ArrayList <Instrutor> Listartodosnomes(String nome){
+		 ArrayList<Instrutor> lista = new ArrayList<Instrutor>();
 	    String sql = "select * from instrutor where nome like '%"+nome+"%' " ;
 	    try{
 	        st = conn.createStatement();

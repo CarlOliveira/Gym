@@ -1,6 +1,6 @@
 package model;
 
-public class FichaExerc {
+public class FichaExercicio {
 
 	private int idFicha;
 	private Aluno aluno;

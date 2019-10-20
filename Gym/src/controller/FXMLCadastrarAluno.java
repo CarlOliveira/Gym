@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import dao.AlunoDao;
+import dao.AlunoDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -61,7 +61,7 @@ public class FXMLCadastrarAluno implements Initializable {
 
 	private List<Aluno> colecaoAluno;
 	private ObservableList<Aluno> observableListAluno;
-	private AlunoDao alunoDAO = new AlunoDao();
+	private AlunoDAO alunoDAO = new AlunoDAO();
 
 	public void initialize(URL location, ResourceBundle resources) {
 		carregarLista();

@@ -3,7 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dao.AlunoDao;
+import dao.AlunoDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -118,7 +118,7 @@ public class FXMLCadastrarAlunoDialog implements Initializable {
 			camposOK = false;
 		} else {
 			if (!isAlterar) {
-				AlunoDao alunoDao = new AlunoDao();
+				AlunoDAO alunoDao = new AlunoDAO();
 				Boolean existeCpf = alunoDao.VeficaSeCpfJaExiste(textFieldCpf.getText());
 				if (existeCpf) {
 					mensagemErro += "CPF já cadastrado! \n";

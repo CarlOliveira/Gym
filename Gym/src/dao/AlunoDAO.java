@@ -7,14 +7,14 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class AlunoDao {
+public class AlunoDAO {
 	
 	private Connection conn;
 	private PreparedStatement stmt;
 	private Statement st;
 	private ResultSet rs;
 	    
-	public AlunoDao(){
+	public AlunoDAO(){
 	 conn = new ConnectionFactory().getConexao();
 	}
 	
@@ -57,9 +57,9 @@ public void update(Aluno aluno) {
 public void delete (Aluno aluno) {
     String sql = "DELETE FROM aluno WHERE cpf = ?";
     try{
-        st = conn.createStatement();
-        st.execute(sql);
-        st.close();
+    	stmt = conn.prepareStatement(sql);
+    	stmt.setString(1, aluno.getCpf());
+    	stmt.close();
     } 
     catch(Exception erro){
         throw new RuntimeException ("ERRO 4: " + erro);

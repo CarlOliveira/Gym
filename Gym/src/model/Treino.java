@@ -5,6 +5,7 @@ public class Treino {
 	private int idTreino;
 	private Aluno aluno;
 	private Instrutor instrutor;
+	private Exercicio exercicio; 
 	private String descricao;
 	private String turno;
 	private String data_Treino;
@@ -44,5 +45,11 @@ public class Treino {
 	}
 	public void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
+	}
+	public Exercicio getExercicio() {
+		return exercicio;
+	}
+	public void setExercicio(Exercicio exercicio) {
+		this.exercicio = exercicio;
 	}
 }
