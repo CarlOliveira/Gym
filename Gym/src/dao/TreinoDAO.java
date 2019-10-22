@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import model.Aluno;
@@ -16,6 +17,7 @@ public class TreinoDAO {
 	private PreparedStatement stmt;
 	private Statement st;
 	private ResultSet rs;
+	private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
 	public TreinoDAO(){
 		 conn = new ConnectionFactory().getConexao();
@@ -29,8 +31,7 @@ public class TreinoDAO {
 		        stmt.setString(2, treino.getInstrutor().getCpf());
 		        stmt.setString(3, treino.getExercicio().getNome());
 		        stmt.setString(4, treino.getDescricao());
-		        java.sql.Date dataSql = new java.sql.Date(treino.getDataTreino().getTime());
-		        stmt.setDate(5, dataSql);
+		        stmt.setString(5, formato.format(treino.getDataTreino()));
 		        stmt.setString(6, treino.getTurno());
 		        stmt.execute();
 		        stmt.close();
@@ -44,14 +45,14 @@ public class TreinoDAO {
 	public void update(Treino treino) {
 	    String sql = "UPDATE treino set cpf = ?, cpf_Instrutor = ?, exercicio = ? , descricao = ?,"
 	    		+ " data_treino = ?, turno = ? WHERE idTreino = ?";
+	    
 	    try{
 	        stmt = conn.prepareStatement (sql);
 	        stmt.setString(1, treino.getAluno().getCpf());
 	        stmt.setString(2, treino.getInstrutor().getCpf());
 	        stmt.setString(3, treino.getExercicio().getNome());
 	        stmt.setString(4, treino.getDescricao());
-	        java.sql.Date dataSql = new java.sql.Date(treino.getDataTreino().getTime());
-	        stmt.setDate(5, dataSql);
+	        stmt.setString(5, formato.format(treino.getDataTreino()));
 	        stmt.setString(6, treino.getTurno());
 	        stmt.setInt(7, treino.getIdTreino());
 	        stmt.execute();
@@ -105,7 +106,7 @@ public class TreinoDAO {
 	        	treino.setAluno(aluno);
 	        	treino.setInstrutor(instrutor);
 	        	treino.setExercicio(exercicio);
-	        	treino.setDataTreino(rs.getDate("t.data_treino"));
+	        	treino.setDataTreino(formato.parse(rs.getString("t.data_treino")));
 	        	treino.setTurno(rs.getString("t.turno"));
 	        	treino.setDescricao(rs.getString("t.descricao"));
 	        	treino.setIdTreino(rs.getInt("t.idTreino"));

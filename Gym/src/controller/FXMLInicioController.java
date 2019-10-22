@@ -20,9 +20,13 @@ public class FXMLInicioController implements Initializable {
     
     @FXML
     private MenuItem menuItemExercicio;
+    
+    @FXML
+    private MenuItem menuItemTreino;
 
     @FXML
     private AnchorPane ancorPane;
+    
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -39,6 +43,13 @@ public class FXMLInicioController implements Initializable {
 	public void abrirMenuItemCadastroExercicio(ActionEvent event) throws IOException {
 		AnchorPane pane = (AnchorPane) 
 				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarExercicio.fxml"));
+		ancorPane.getChildren().setAll(pane);
+	}
+	
+	@FXML
+	public void abrirMenuItemCadastroTreino(ActionEvent event) throws IOException {
+		AnchorPane pane = (AnchorPane) 
+				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarTreino.fxml"));
 		ancorPane.getChildren().setAll(pane);
 	}
     	
