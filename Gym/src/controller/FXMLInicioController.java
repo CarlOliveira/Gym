@@ -33,6 +33,13 @@ public class FXMLInicioController implements Initializable {
 		
 	}
 	@FXML
+	public void abrirMenuItemCadastroInstrutor(ActionEvent event) throws IOException {
+		AnchorPane pane = (AnchorPane) 
+				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarInstrutor.fxml"));
+		ancorPane.getChildren().setAll(pane);
+	}
+	
+	@FXML
 	public void abrirMenuItemCadastroAluno(ActionEvent event) throws IOException {
 		AnchorPane pane = (AnchorPane) 
 				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarAluno.fxml"));

@@ -1,5 +1,6 @@
 package dao;
 
+
 import model.Instrutor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -114,5 +115,24 @@ public class InstrutorDAO {
 	    }
 	    return lista;
 	}
+	 public Boolean VeficaSeCpfJaExiste(String cpf){
+		    String sql = "select cpf from instrutor where cpf like '%"+cpf+"%' ";
+		    Instrutor instrutor = new Instrutor();
+		    try{
+		        st = conn.createStatement();
+		        rs = st.executeQuery(sql);
+		        while (rs.next ()){
+		            instrutor.setCpf(rs.getString("cpf"));
+		        }
+		    }    
+		    catch(Exception erro){
+		        throw new RuntimeException ("Erro 5: " + erro);
+		    }
+		    if (instrutor.getCpf() != null) {
+		    	return true;
+		    } else {
+		    	return false;
+		    }
+		}
 	  
 }

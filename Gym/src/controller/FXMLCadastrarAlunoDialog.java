@@ -76,6 +76,7 @@ public class FXMLCadastrarAlunoDialog implements Initializable {
 		this.textFildNome.setText(aluno.getNome());
 		if (aluno.getCpf() != null) {
 			this.isAlterar = true;
+			textFieldCpf.setDisable(true);
 		}
 	}
 

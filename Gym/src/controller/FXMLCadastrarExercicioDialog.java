@@ -54,6 +54,7 @@ public class FXMLCadastrarExercicioDialog implements Initializable {
 		this.textFildNome.setText(exercicio.getNome());
 		if (exercicio.getNome() != null) {
 			this.isAlterar = true;
+			textFildNome.setDisable(true);
 		}
 	}
 
