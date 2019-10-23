@@ -68,6 +68,7 @@ public class TreinoDAO {
 	    try{
 	    	stmt = conn.prepareStatement(sql);
 	    	stmt.setInt(1, treino.getIdTreino());
+	    	stmt.execute();
 	    	stmt.close();
 	    } 
 	    catch(Exception erro){

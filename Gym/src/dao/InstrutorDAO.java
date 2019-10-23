@@ -61,6 +61,7 @@ public class InstrutorDAO {
 	    try{
 	     	stmt = conn.prepareStatement(sql);
 	    	stmt.setString(1, instrutor.getCpf());
+	    	stmt.execute();
 	    	stmt.close();
 	    } 
 	    catch(Exception erro){
