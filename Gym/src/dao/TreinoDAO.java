@@ -79,7 +79,7 @@ public class TreinoDAO {
 	public ArrayList <Treino> Listartodos(){
 	    String sql = "select a.nome, a.cpf, a.email, a.endereco, " + 
 	    		"i.cpf, i.email, i.endereco, i.nome, i.telefone, i.turno, " + 
-	    		"e.exercicio, e.agrupamento_muscular, e.descrição, " + 
+	    		"e.exercicio, e.agrupamento_muscular, e.descricao, " + 
 	    		"t.descricao, t.data_treino, t.turno, t.idTreino " + 
 	    		"from treino as t join aluno a on t.cpf = a.cpf " + 
 	    		"join instrutor as i on t.cpf_instrutor = i.cpf " + 
@@ -102,7 +102,7 @@ public class TreinoDAO {
 	        	Exercicio exercicio = new Exercicio();
 	        	exercicio.setNome(rs.getString("e.exercicio"));
 	        	exercicio.setAgrupamentoMuscular(rs.getString("e.agrupamento_muscular"));
-	        	exercicio.setDescricao(rs.getString("e.descrição"));
+	        	exercicio.setDescricao(rs.getString("e.descricao"));
 	        	
 	        	treino.setAluno(aluno);
 	        	treino.setInstrutor(instrutor);

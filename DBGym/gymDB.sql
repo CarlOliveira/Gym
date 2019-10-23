@@ -20,7 +20,8 @@ turno varchar(255)
 
 create table exercicio(
 exercicio varchar(255) not null primary key,
-agrupamento_muscular varchar(255)
+agrupamento_muscular varchar(255),
+descricao varchar(500)
 );
 
 create table treino(

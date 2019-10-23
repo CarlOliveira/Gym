@@ -20,7 +20,7 @@ public class ExercicioDAO {
 		}
 		
 		public void create(Exercicio exercicio) {
-			String sql = "INSERT INTO exercicio (exercicio, agrupamento_muscular, descrição) VALUES (?,?,?)";
+			String sql = "INSERT INTO exercicio (exercicio, agrupamento_muscular, descricao) VALUES (?,?,?)";
 		    try {
 		        stmt = conn.prepareStatement(sql);
 		        stmt.setString(1, exercicio.getNome());
@@ -36,7 +36,7 @@ public class ExercicioDAO {
 
 
 	public void update(Exercicio exercicio) {
-	    String sql = "UPDATE exercicio set agrupamento_muscular = ?, descrição = ? WHERE exercicio = ?";
+	    String sql = "UPDATE exercicio set agrupamento_muscular = ?, descricao = ? WHERE exercicio = ?";
 	    try{
 	        stmt = conn.prepareStatement (sql);
 	        stmt.setString(1, exercicio.getAgrupamentoMuscular());
@@ -73,7 +73,7 @@ public class ExercicioDAO {
 	        	Exercicio exercicio = new Exercicio();
 	        	exercicio.setNome(rs.getString("exercicio"));
 	        	exercicio.setAgrupamentoMuscular(rs.getString("agrupamento_muscular"));
-	        	exercicio.setDescricao(rs.getString("descrição"));
+	        	exercicio.setDescricao(rs.getString("descricao"));
 	            lista.add(exercicio);
 	        }
 	    }    
@@ -95,7 +95,7 @@ public class ExercicioDAO {
 	        	exercicio = new Exercicio();
 	        	exercicio.setNome(rs.getString("exercicio"));
 	        	exercicio.setAgrupamentoMuscular(rs.getString("agrupamento_muscular"));
-	        	exercicio.setDescricao(rs.getString("descrição"));
+	        	exercicio.setDescricao(rs.getString("descricao"));
 	        }
 	    }    
 	    catch(Exception erro){
