@@ -17,7 +17,7 @@ import model.Aluno;
 public class FXMLCadastrarAlunoDialog implements Initializable {
 
 	@FXML
-	private TextField textFildNome;
+	private TextField textFieldNome;
 
 	@FXML
 	private TextField textFieldCpf;
@@ -73,7 +73,7 @@ public class FXMLCadastrarAlunoDialog implements Initializable {
 		this.textFieldEmail.setText(aluno.getEmail());
 		this.textFieldEndereco.setText(aluno.getEndereco());
 		this.textFieldTelefone.setText(aluno.getTelefone());
-		this.textFildNome.setText(aluno.getNome());
+		this.textFieldNome.setText(aluno.getNome());
 		if (aluno.getCpf() != null) {
 			this.isAlterar = true;
 			textFieldCpf.setDisable(true);
@@ -100,7 +100,7 @@ public class FXMLCadastrarAlunoDialog implements Initializable {
 	public void confirmar() {
 		if (validarCampos()) {
 			aluno.setCpf(textFieldCpf.getText());
-			aluno.setNome(textFildNome.getText());
+			aluno.setNome(textFieldNome.getText());
 			aluno.setEmail(textFieldEmail.getText());
 			aluno.setEndereco(textFieldEndereco.getText());
 			aluno.setTelefone(textFieldTelefone.getText());
@@ -115,32 +115,32 @@ public class FXMLCadastrarAlunoDialog implements Initializable {
 		Boolean camposOK = true;
 
 		if (textFieldCpf.getText() == null || textFieldCpf.getText().length() == 0) {
-			mensagemErro += "CPF inválido! \n";
+			mensagemErro += "CPF invï¿½lido! \n";
 			camposOK = false;
 		} else {
 			if (!isAlterar) {
 				AlunoDAO alunoDao = new AlunoDAO();
 				Boolean existeCpf = alunoDao.VeficaSeCpfJaExiste(textFieldCpf.getText());
 				if (existeCpf) {
-					mensagemErro += "CPF já cadastrado! \n";
+					mensagemErro += "CPF jï¿½ cadastrado! \n";
 					camposOK = false;
 				}
 			}
 		}
-		if (textFildNome.getText() == null || textFildNome.getText().length() == 0) {
-			mensagemErro += "Nome inválido! \n";
+		if (textFieldNome.getText() == null || textFieldNome.getText().length() == 0) {
+			mensagemErro += "Nome invï¿½lido! \n";
 			camposOK = false;
 		}
 		if (textFieldEndereco.getText() == null || textFieldEndereco.getText().length() == 0) {
-			mensagemErro += "Endereço inválido! \n";
+			mensagemErro += "Endereï¿½o invï¿½lido! \n";
 			camposOK = false;
 		}
 		if (textFieldTelefone.getText() == null || textFieldTelefone.getText().length() == 0) {
-			mensagemErro += "Telefone inválido! \n";
+			mensagemErro += "Telefone invï¿½lido! \n";
 			camposOK = false;
 		}
 		if (textFieldTelefone.getText() == null || textFieldTelefone.getText().length() == 0) {
-			mensagemErro += "E-mail inválido! \n";
+			mensagemErro += "E-mail invï¿½lido! \n";
 			camposOK = false;
 		}
 		if (!camposOK) {
