@@ -115,32 +115,32 @@ public class FXMLCadastrarAlunoDialog implements Initializable {
 		Boolean camposOK = true;
 
 		if (textFieldCpf.getText() == null || textFieldCpf.getText().length() == 0) {
-			mensagemErro += "CPF inv�lido! \n";
+			mensagemErro += "CPF inválido! \n";
 			camposOK = false;
 		} else {
 			if (!isAlterar) {
 				AlunoDAO alunoDao = new AlunoDAO();
 				Boolean existeCpf = alunoDao.VeficaSeCpfJaExiste(textFieldCpf.getText());
 				if (existeCpf) {
-					mensagemErro += "CPF j� cadastrado! \n";
+					mensagemErro += "CPF já cadastrado! \n";
 					camposOK = false;
 				}
 			}
 		}
 		if (textFieldNome.getText() == null || textFieldNome.getText().length() == 0) {
-			mensagemErro += "Nome inv�lido! \n";
+			mensagemErro += "Nome inválido! \n";
 			camposOK = false;
 		}
 		if (textFieldEndereco.getText() == null || textFieldEndereco.getText().length() == 0) {
-			mensagemErro += "Endere�o inv�lido! \n";
+			mensagemErro += "Endereço inválido! \n";
 			camposOK = false;
 		}
 		if (textFieldTelefone.getText() == null || textFieldTelefone.getText().length() == 0) {
-			mensagemErro += "Telefone inv�lido! \n";
+			mensagemErro += "Telefone inválido! \n";
 			camposOK = false;
 		}
 		if (textFieldTelefone.getText() == null || textFieldTelefone.getText().length() == 0) {
-			mensagemErro += "E-mail inv�lido! \n";
+			mensagemErro += "E-mail inválido! \n";
 			camposOK = false;
 		}
 		if (!camposOK) {

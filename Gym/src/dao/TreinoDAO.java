@@ -118,6 +118,81 @@ public class TreinoDAO {
 	        throw new RuntimeException ("Erro 5: " + erro);
 	    }
 	    return lista;
-	}	  
-
+	}
+	public ArrayList <Treino> ListartodosPorAluno(Aluno aluno){
+	    String sql = "select i.cpf, i.email, i.endereco, i.nome, i.telefone, i.turno, " + 
+	    		"e.exercicio, e.agrupamento_muscular, e.descricao, " + 
+	    		"t.descricao, t.data_treino, t.turno, t.idTreino " + 
+	    		"from treino as t " + 
+	    		"join instrutor as i on t.cpf_instrutor = i.cpf " + 
+	    		"join exercicio as e on e.exercicio = t.exercicio WHERE t.cpf = '" + aluno.getCpf() + "' ";
+	    ArrayList<Treino> lista = new ArrayList<Treino>();
+	    try{
+	    	stmt = conn.prepareStatement(sql);
+	        rs = stmt.executeQuery();
+	        while (rs.next ()){
+	        	Treino treino = new Treino();
+	        	
+	        	Instrutor instrutor = new Instrutor();
+	        	instrutor.setCpf(rs.getString("i.cpf"));
+	        	instrutor.setNome(rs.getString("i.nome"));
+	        	
+	        	Exercicio exercicio = new Exercicio();
+	        	exercicio.setNome(rs.getString("e.exercicio"));
+	        	exercicio.setAgrupamentoMuscular(rs.getString("e.agrupamento_muscular"));
+	        	exercicio.setDescricao(rs.getString("e.descricao"));
+	        	
+	        	treino.setAluno(aluno);
+	        	treino.setInstrutor(instrutor);
+	        	treino.setExercicio(exercicio);
+	        	treino.setDataTreino(formato.parse(rs.getString("t.data_treino")));
+	        	treino.setTurno(rs.getString("t.turno"));
+	        	treino.setDescricao(rs.getString("t.descricao"));
+	        	treino.setIdTreino(rs.getInt("t.idTreino"));
+	            lista.add(treino);
+	        }
+	    }    
+	    catch(Exception erro){
+	        throw new RuntimeException ("Erro 5: " + erro);
+	    }
+	    return lista;
+	}	
+	
+	public ArrayList <Treino> ListartodosPorInstrutor(Instrutor instrutor){
+	    String sql = "select a.nome, a.cpf, a.email, a.endereco, " + 
+	    		"e.exercicio, e.agrupamento_muscular, e.descricao, " + 
+	    		"t.descricao, t.data_treino, t.turno, t.idTreino " + 
+	    		"from treino as t join aluno a on t.cpf = a.cpf " + 
+	    		"join exercicio as e on e.exercicio = t.exercicio WHERE t.cpf_Instrutor = '" + instrutor.getCpf() + "' ";
+	    ArrayList<Treino> lista = new ArrayList<Treino>();
+	    try{
+	        st = conn.createStatement();
+	        rs = st.executeQuery(sql);
+	        while (rs.next ()){
+	        	Treino treino = new Treino();
+	        	Aluno aluno = new Aluno();
+	        	
+	        	aluno.setCpf(rs.getString("a.cpf"));
+	        	aluno.setNome(rs.getString("a.nome"));
+	        	        	
+	        	Exercicio exercicio = new Exercicio();
+	        	exercicio.setNome(rs.getString("e.exercicio"));
+	        	exercicio.setAgrupamentoMuscular(rs.getString("e.agrupamento_muscular"));
+	        	exercicio.setDescricao(rs.getString("e.descricao"));
+	        	
+	        	treino.setAluno(aluno);
+	        	treino.setInstrutor(instrutor);
+	        	treino.setExercicio(exercicio);
+	        	treino.setDataTreino(formato.parse(rs.getString("t.data_treino")));
+	        	treino.setTurno(rs.getString("t.turno"));
+	        	treino.setDescricao(rs.getString("t.descricao"));
+	        	treino.setIdTreino(rs.getInt("t.idTreino"));
+	            lista.add(treino);
+	        }
+	    }    
+	    catch(Exception erro){
+	        throw new RuntimeException ("Erro 5: " + erro);
+	    }
+	    return lista;
+	}
 }

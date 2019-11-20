@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Treino {
@@ -11,6 +12,10 @@ public class Treino {
 	private String descricao;
 	private String turno;
 	private Date dataTreino;
+	private String dataString;
+	private String nomeAluno;
+	private String nomeInstrutor;
+	private String nomeExercicio;
 
 	public int getIdTreino() {
 		return idTreino;
@@ -53,5 +58,22 @@ public class Treino {
 	}
 	public void setDataTreino(Date dataTreino) {
 		this.dataTreino = dataTreino;
+	}
+	public String getDataString() {
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		dataString = formato.format(this.dataTreino);
+		return dataString;
+	}
+	public String getNomeAluno() {
+		nomeAluno = this.aluno.getNome();
+		return nomeAluno;
+	}
+	public String getNomeInstrutor() {
+		nomeInstrutor = this.instrutor.getNome();
+		return nomeInstrutor;
+	}
+	public String getNomeExercicio() {
+		nomeExercicio = this.exercicio.getNome();
+		return nomeExercicio;
 	}
 }

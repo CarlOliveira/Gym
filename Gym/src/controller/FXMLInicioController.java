@@ -59,7 +59,20 @@ public class FXMLInicioController implements Initializable {
 				FXMLLoader.load(getClass().getResource("../view/FXMLCadastrarTreino.fxml"));
 		ancorPane.getChildren().setAll(pane);
 	}
-    	
+	
+	@FXML
+	public void abrirMenuItemTreinoAluno(ActionEvent event) throws IOException {
+		AnchorPane pane = (AnchorPane) 
+				FXMLLoader.load(getClass().getResource("../view/FXMLAlunoTreino.fxml"));
+		ancorPane.getChildren().setAll(pane);
+	}
+
+	@FXML
+	public void abrirMenuItemTreinoInstrutor(ActionEvent event) throws IOException {
+		AnchorPane pane = (AnchorPane) 
+				FXMLLoader.load(getClass().getResource("../view/FXMLInstrutorTreino.fxml"));
+		ancorPane.getChildren().setAll(pane);
+	}
     
 
 }

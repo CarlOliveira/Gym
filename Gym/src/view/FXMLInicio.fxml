@@ -13,12 +13,16 @@
           <Menu mnemonicParsing="false" text="Cadastros">
             <items>
               <MenuItem fx:id="menuItemAluno" mnemonicParsing="false" onAction="#abrirMenuItemCadastroAluno" text="Aluno" />
-                  <MenuItem fx:id="menuItemInstrutor" mnemonicParsing="false" onAction="#abrirMenuItemCadastroInstrutor"  text="Instrutor" />
+                  <MenuItem fx:id="menuItemInstrutor" mnemonicParsing="false" onAction="#abrirMenuItemCadastroInstrutor" text="Instrutor" />
                   <MenuItem fx:id="menuItemExercicio" mnemonicParsing="false" onAction="#abrirMenuItemCadastroExercicio" text="Exercicio" />
                   <MenuItem fx:id="menuItemTreino" mnemonicParsing="false" onAction="#abrirMenuItemCadastroTreino" text="Treino" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Informações" />
+          <Menu mnemonicParsing="false" text="Informações">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirMenuItemTreinoAluno" text="treinos dos alunos" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirMenuItemTreinoInstrutor" text="treinos instrutores" />
+               </items></Menu>
             <Menu mnemonicParsing="false" text="Relatorios" />
         </menus>
       </MenuBar>

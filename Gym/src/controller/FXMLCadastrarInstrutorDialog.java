@@ -122,32 +122,32 @@ public class FXMLCadastrarInstrutorDialog implements Initializable {
 		Boolean camposOK = true;
 
 		if (textFieldCpf.getText() == null || textFieldCpf.getText().length() == 0) {
-			mensagemErro += "CPF invï¿½lido! \n";
+			mensagemErro += "CPF inválido! \n";
 			camposOK = false;
 		} else {
 			if (!isAlterar) {
 				InstrutorDAO instrutorDao = new InstrutorDAO();
 				Boolean existeCpf = instrutorDao.VeficaSeCpfJaExiste(textFieldCpf.getText());
 				if (existeCpf) {
-					mensagemErro += "CPF jï¿½ cadastrado! \n";
+					mensagemErro += "CPF já cadastrado! \n";
 					camposOK = false;
 				}
 			}
 		}
 		if (textFieldNome.getText() == null || textFieldNome.getText().length() == 0) {
-			mensagemErro += "Nome invï¿½lido! \n";
+			mensagemErro += "Nome inválido! \n";
 			camposOK = false;
 		}
 		if (textFieldEndereco.getText() == null || textFieldEndereco.getText().length() == 0) {
-			mensagemErro += "Endereï¿½o invï¿½lido! \n";
+			mensagemErro += "Endereço inválido! \n";
 			camposOK = false;
 		}
 		if (textFieldTelefone.getText() == null || textFieldTelefone.getText().length() == 0) {
-			mensagemErro += "Telefone invï¿½lido! \n";
+			mensagemErro += "Telefone inválido! \n";
 			camposOK = false;
 		}
 		if (textFieldTelefone.getText() == null || textFieldTelefone.getText().length() == 0) {
-			mensagemErro += "E-mail invï¿½lido! \n";
+			mensagemErro += "E-mail inválido! \n";
 			camposOK = false;
 		}
 		if (!camposOK) {
