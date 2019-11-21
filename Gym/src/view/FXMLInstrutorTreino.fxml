@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="376.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLInstrutorTreino">
+   <children>
+      <SplitPane layoutX="6.0" prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tableViewInstrutor" layoutY="46.0" prefHeight="133.0" prefWidth="598.0" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
+                    <columns>
+                      <TableColumn fx:id="tableCollumnInstrutorNome" prefWidth="75.0" text="Nome" />
+                      <TableColumn fx:id="tableCollumnCpf" prefWidth="75.0" text="CPF" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Label layoutX="14.0" layoutY="29.0" text="Instrutor" />
+                  <TableView fx:id="tableTreinos" layoutY="212.0" prefHeight="162.0" prefWidth="598.0">
+                    <columns>
+                      <TableColumn fx:id="colummTreino" prefWidth="94.0" text="Treino" />
+                      <TableColumn fx:id="colummTurno" prefWidth="67.0" text="Turno" />
+                        <TableColumn fx:id="colummData" prefWidth="70.0" text="Data" />
+                        <TableColumn fx:id="colummAluno" prefWidth="121.0" text="Aluno" />
+                        <TableColumn fx:id="colummInstrutor" prefWidth="111.0" text="Instrutor" />
+                        <TableColumn fx:id="colummExercicio" prefWidth="133.0" text="Exercicio" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="7.0" layoutY="195.0" text="Treinos" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
